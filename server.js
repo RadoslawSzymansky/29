@@ -1,6 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+var http = require('http');
+var fs = require('fs');
+var path = require('path');
+
+http.createServer(function (request, response) {
+
+  var filePath = '.' + request.url;
+  if (filePath == './')
+    filePath = './index.html';
+  
+}).listen(process.env.PORT || 5000)
+
+console.log('Server running at http://127.0.0.1:5000/');  
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://user:admin123@cluster0-ahxwi.mongodb.net/test?retryWrites=true&w=majority');
 
